@@ -29,6 +29,8 @@ Invalid length for parameter AccountId, value: 9, valid min length: 12 '' - To s
 
 ### Create an SNS Topic
 I created an SNS topic from the CLI then included the Billing Alarm as per the instructions
-**proof of work** : []()
+**proof of work** : 
+![Billing Alarms]()
+
 
 ## HOMEWORK CHALLENEGS
