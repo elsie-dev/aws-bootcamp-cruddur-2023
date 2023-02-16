@@ -16,10 +16,10 @@ __One for ZeroSpend Budget__ - Notifies when my spending exceed areforecasted to
 __Credit Limit Budget__ - Covers costs used in billings for the allowed resources.
 For the two budgets included notification emails and action( stopping the EC2 when limit is exceeded)
 
-### Installing AWS CLI:
-I used Gitpod as instructed from the videos, and proof of work can be viewed fom my gitpod.yaml file.
+### Installing and Verifing AWS CLI:
+I used Gitpod as instructed from the videos, and proof of work can be viewed fom my [gitpod.yaml file]().
 
-**Proof of aws cli - ADD IMAGE.**
+**Proof of aws cli image - ADD IMAGE.**
 
 
 ## HOMEWORK CHALLENEGS
