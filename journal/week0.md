@@ -21,5 +21,14 @@ I used Gitpod as instructed from the videos, and proof of work can be viewed fom
 
 **Proof of aws cli image - ADD IMAGE.**
 
+### AWS CLI Budgets:
+I created AWS AWS Budget from the cli using commands from the youtube video.
+Issue l run into while on the Gitpod
+'' Parameter validation failed:
+Invalid length for parameter AccountId, value: 9, valid min length: 12 '' - To solve this from stackoverflow turns out , l hadn't included my account ID the right way in the env terminal.
+
+### Create an SNS Topic
+I created an SNS topic from the CLI then included the Billing Alarm as per the instructions
+**proof of work** : []()
 
 ## HOMEWORK CHALLENEGS
