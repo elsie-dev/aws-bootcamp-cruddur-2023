@@ -47,6 +47,7 @@ I succesfully recreated the Crudder Conceptual Diagram, and one of the unique fe
 - [x] Research the technical and service limits of specific services and how they could impact the technical path for technical flexibility. 
 - [x] Open a support ticket and request a service limit
 
+### Reference challenges
 
 ## KEY TAKEAWAYS:
 * While installing the AWS CLI on the Gitpod rem to __NOT__ use aws configure for the credential instaed use the export aws since this is an enviroment variable that we don't intend to be committed. 
