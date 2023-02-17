@@ -19,7 +19,7 @@ For the two budgets included notification emails and action( stopping the EC2 wh
 ### Installing and Verifing AWS CLI:
 I used Gitpod as instructed from the videos, and proof of work can be viewed fom my [gitpod.yaml file]().
 
-**Proof of aws cli image - ADD IMAGE.**
+**Proof of AWS CLI installation - ADD IMAGE.**
 
 ### AWS CLI Budgets:
 I created AWS AWS Budget from the cli using commands from the youtube video.
@@ -27,17 +27,20 @@ Issue l run into while on the Gitpod
 '' Parameter validation failed:
 Invalid length for parameter AccountId, value: 9, valid min length: 12 '' - To solve this from stackoverflow turns out , l hadn't included my account ID the right way in the env terminal.
 
-### Create an SNS Topic
+### Creating an SNS Topic
 I created an SNS topic from the CLI then included the Billing Alarm as per the instructions
 **proof of work** : 
 
-### Create a Budget
+### Creating a Budget
 I created my own budget for to help with costs estimates.
 ![Billing Budget]()
 
 ![Billing Alarms]()
 
 ### Recreating the Logical Architecture Design
+I succesfully recreated the Crudder Conceptual Diagram, and one of the unique feature, is the colour arrow between the Dynamo DB, Amazon RDS and Appsync this is because ..............
 
+Here's the link to my [Lucid Diagram](![image](https://user-images.githubusercontent.com/62996370/219619577-7e6f945c-864d-46b8-b1b3-c9c6d819279c.png)
+) and ![Screenshot image]() to show proof of work.
 
 ## HOMEWORK CHALLENEGS
