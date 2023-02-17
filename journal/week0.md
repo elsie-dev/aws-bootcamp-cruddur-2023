@@ -9,7 +9,6 @@
 - [] Open a support ticket and request a service limit
 
 
-
  ### Created Two budgets on AWS:
 __One for ZeroSpend Budget__ - Notifies when my spending exceed areforecasted to exceed the free tier limit.
 
@@ -44,3 +43,11 @@ Here's the link to my [Lucid Diagram](![image](https://user-images.githubusercon
 ) and ![Screenshot image]() to show proof of work.
 
 ## HOMEWORK CHALLENEGS
+
+
+## KEY TAKEAWAYS:
+* While installing the AWS CLI on the Gitpod rem to __NOT__ use aws configure for the credential instaed use the export aws since this is an enviroment variable that we don't intend to be committed. 
+* Also ensure you are in the right folder not inside the working directory for your crudder project
+* Creating and Viewing Budgets might return an error from the user account, ensure to specify the billing policies to have access.
+* Saving your AWS account ID, region, secret and access key to avoid starting afresh on gitpod everytime is highyl recommended.
+* 
