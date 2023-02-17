@@ -20,7 +20,7 @@ I created AWS Budget from the cli using commands from the youtube video.
 Issue l run into while on the Gitpod
 *Parameter validation failed:
 Invalid length for parameter AccountId, value: 9, valid min length: 12*
-- Soved this through [stackoverflow] (https://stackoverflow.com/questions/59822733/please-solve-the-error-in-aws-cli-parameter-validation-failed) which turns out , l hadn't included my account ID the right way in the env terminal and was returned empty value while tring to create the budget.
+- Soved this through [stackoverflow](https://stackoverflow.com/questions/59822733/please-solve-the-error-in-aws-cli-parameter-validation-failed) which turns out , l hadn't included my account ID the right way in the env terminal and was returned empty value while tring to create the budget.
 
 ### Created a Budget
 I created my own budget for to help with costs estimates.
