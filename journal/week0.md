@@ -13,7 +13,7 @@ For the two budgets included notification emails and action( stopping the EC2 wh
 ### Installed and Verified AWS CLI:
 I used Gitpod as instructed from the videos, and proof of work can be viewed fom my [gitpod.yaml file]().
 
-**Proof of AWS CLI installation - ADD IMAGE.**
+![Proof of working AWS CLI](assets/Week%200%20AWS%20CLI.JPG)
 
 ### AWS CLI Budgets:
 I created AWS Budget from the cli using commands from the youtube video.
@@ -24,34 +24,29 @@ Invalid length for parameter AccountId, value: 9, valid min length: 12*
 
 ### Created a Budget
 I created my own budget for to help with costs estimates.
-![Billing Budget]()
+![Proof of Billing Budget](assets/week0%20budgets.JPG)
 
 ### Creeated Billing Alarm
-Had no issue creating an alarm and adding my email under action.
-Proof of task ![Billing Alarms]()
+I also created a billing laarm to help with daily estimated charges and get an email notification whenever the charge is about to be exceeded.
+![Proof of Billing Alarm](assets/Billing%20Alarm.JPG)
 
 ### Created an SNS Topic
 I created an SNS topic from the CLI then included the Billing Alarm as per the instructions
-**proof of work** : 
+![Proof of SNS Topic](assets/Week%200%20SNS%20Topic.JPG)
 
 
 ### Recreated the Logical Architecture Design
 I succesfully recreated the Crudder Conceptual Diagram, and one of the unique feature, is the colour arrow between the Dynamo DB, Amazon RDS and Appsync this is because ..............
 
-Here's the link to my [Lucid Diagram](![image](https://user-images.githubusercontent.com/62996370/219619577-7e6f945c-864d-46b8-b1b3-c9c6d819279c.png)
-) and ![Screenshot image]() to show proof of work.
-
+![Cruddur Logical Design](assets/lucid%20architecture.JPG)
+ Additional proof of the [Lucid Share Link](https://lucid.app/lucidchart/cd84a441-e50e-4431-8e92-805aa20150c9/edit?page=0_0#)
 
 
 ## HOMEWORK CHALLENEGS
-- [x] Destroy your root account credentials, Set MFA, IAM role
-- [] Use EventBridge to hookup Health Dashboard to SNS and send notification when there is a service health issue.
 - [x] Review all the questions of each pillars in the Well Architected Tool (No specialized lens)
-- [x] Create an architectural diagram (to the best of your ability) the CI/CD logical pipeline in Lucid Charts
 - [x] Research the technical and service limits of specific services and how they could impact the technical path for technical flexibility. 
 - [x] Open a support ticket and request a service limit
 
-* Open a support ticket 
 
 ## KEY TAKEAWAYS:
 * While installing the AWS CLI on the Gitpod rem to __NOT__ use aws configure for the credential instaed use the export aws since this is an enviroment variable that we don't intend to be committed. 
