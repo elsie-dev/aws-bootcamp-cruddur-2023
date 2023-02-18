@@ -46,7 +46,7 @@ In addition to that you can notice the arrows from Amazon Dynamo DB and RDS to A
 
 
 ## HOMEWORK CHALLENEGS
-- [x] Additional tools in the Logical Diagram
+- [x] Additional icons in the Logical Diagram
  - Since security is essential in the Cruddur Application, l intend to restict netwrok traffic to my database by allowing only legitimate traffic to reduce attacks.
  - The databases at the backend are secured in the private subnet so as to not access internet directly.
  -  However the database servers can send and receive internet traffic through the NAT device in the public subnet located at the frontend.
@@ -55,7 +55,8 @@ In addition to that you can notice the arrows from Amazon Dynamo DB and RDS to A
 - [x] Research the technical and service limits of specific services and how they could impact the technical path for technical flexibility. 
 
 
-### Reference challenges
+### Reference for the Homework Challenges
+
 
 ## KEY TAKEAWAYS:
 * While installing the AWS CLI on the Gitpod rem to __NOT__ use aws configure for the credential instaed use the export aws since this is an enviroment variable that we don't intend to be committed. 
