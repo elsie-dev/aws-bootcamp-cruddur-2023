@@ -50,10 +50,14 @@ In addition to that you can notice the arrows from Amazon Dynamo DB and RDS to A
  - Since security is essential in the Cruddur Application, l intend to restict netwrok traffic to my database by allowing only legitimate traffic to reduce attacks.
  - The databases at the backend are secured in the private subnet so as to not access internet directly.
  -  However the database servers can send and receive internet traffic through the NAT device in the public subnet located at the frontend.
+
+- [x] Conceptual CI/CD Diagram 
+- I designed this to indicate possible automations from code builds to code deploying from Github.
+- With CICD work can be carried out faster and with minimal human errors. In addition small bug fixes can easily be noticed.
+
+ [CICD Design](https://lucid.app/lucidchart/9a3aa242-6532-488f-804c-161b73238eef/edit?view_items=HllynDte0Wk7&invitationId=inv_d9c8df5f-4720-46f2-9da7-346ef8369540)
  
 - [x] Review all the questions of each pillars in the Well Architected Tool (No specialized lens)
-- [x] Research the technical and service limits of specific services and how they could impact the technical path for technical flexibility. 
-
 
 ### Reference for the Homework Challenges
 
