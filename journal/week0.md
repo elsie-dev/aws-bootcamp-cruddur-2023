@@ -1,6 +1,6 @@
 # Week 0 — Billing and Architecture
 
-## REQUIRED HOMEWORKS/TASKS
+## REQUIRED HOMEWORK/TASKS
 These are some of the techical tasks l completed for these week.
 
  ### Created Two budgets on AWS:
@@ -36,16 +36,24 @@ I created an SNS topic from the CLI then included the Billing Alarm as per the i
 
 
 ### Recreated the Logical Architecture Design
-I succesfully recreated the Crudder Conceptual Diagram, and one of the unique feature, is the colour arrow between the Dynamo DB, Amazon RDS and Appsync this is because ..............
+I recreated the Conceptual Diagram but added private and public subnets on both my frontend and backend and a NAT Gateway.
+(Explaining further in the Homework Challenge)
+
+In addition to that you can notice the arrows from Amazon Dynamo DB and RDS to App sync are different, since Appsync contains resolvers used to read and write dat from the two Databases.
 
 ![Cruddur Logical Design](assets/lucid%20architecture.JPG)
- Additional proof of the [Lucid Share Link](https://lucid.app/lucidchart/cd84a441-e50e-4431-8e92-805aa20150c9/edit?page=0_0#)
+ Additional proof of the [Lucid Share Link](https://lucid.app/lucidchart/cd84a441-e50e-4431-8e92-805aa20150c9/edit?viewport_loc=-1256%2C506%2C4302%2C1581%2C0_0&invitationId=inv_04a6dcf8-425a-4ef7-a14b-97a52e6046cc)
 
 
 ## HOMEWORK CHALLENEGS
+- [x] Additional tools in the Logical Diagram
+ - Since security is essential in the Cruddur Application, l intend to restict netwrok traffic to my database by allowing only legitimate traffic to reduce attacks.
+ - The databases at the backend are secured in the private subnet so as to not access internet directly.
+ -  However the database servers can send and receive internet traffic through the NAT device in the public subnet located at the frontend.
+ 
 - [x] Review all the questions of each pillars in the Well Architected Tool (No specialized lens)
 - [x] Research the technical and service limits of specific services and how they could impact the technical path for technical flexibility. 
-- [x] Open a support ticket and request a service limit
+
 
 ### Reference challenges
 
