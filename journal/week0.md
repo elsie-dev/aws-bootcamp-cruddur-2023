@@ -41,7 +41,7 @@ I recreated the Conceptual Diagram but added private and public subnets on both 
 
 In addition to that you can notice the arrows from Amazon Dynamo DB and RDS to App sync are different, since Appsync contains resolvers used to read and write dat from the two Databases.
 
-![Cruddur Logical Design](assets/lucid%20architecture.JPG)
+![Cruddur Logical Design](assets/Logical%20Diagram.JPG)
  Additional proof of the [Lucid Share Link](https://lucid.app/lucidchart/cd84a441-e50e-4431-8e92-805aa20150c9/edit?viewport_loc=-1256%2C506%2C4302%2C1581%2C0_0&invitationId=inv_04a6dcf8-425a-4ef7-a14b-97a52e6046cc)
 
 
