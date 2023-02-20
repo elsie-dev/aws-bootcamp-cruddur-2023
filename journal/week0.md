@@ -11,16 +11,22 @@ __Credit Limit Budget__ - Covers costs used in billings for the allowed resource
 For the two budgets included notification emails and action( stopping the EC2 when limit is exceeded)
 
 ### Installed and Verified AWS CLI:
-I used Gitpod as instructed from the videos, and proof of work can be viewed fom my [gitpod.yaml file]().
+I used Gitpod as instructed from the videos,proof of work can be viewed fom my [gitpod.yaml file]().
+
+**Issue faced while commiting my changes:** 
+*You have diveregent branches and need to specify how to reconcile them* 
+- *Solved this* with the help [GitHub Issues](https://github.com/desktop/desktop/issues/14431)
+
 
 ![Proof of working AWS CLI](assets/Week%200%20AWS%20CLI.JPG)
 
 ### AWS CLI Budgets:
 I created AWS Budget from the cli using commands from the youtube video.
-Issue l run into while on the Gitpod
+
+**Issue faced while on the Gitpod:**
 *Parameter validation failed:
 Invalid length for parameter AccountId, value: 9, valid min length: 12*
-- Soved this through [stackoverflow](https://stackoverflow.com/questions/59822733/please-solve-the-error-in-aws-cli-parameter-validation-failed) which turns out , l hadn't included my account ID the right way in the env terminal and was returned empty value while tring to create the budget.
+- *Soved this* through [stackoverflow](https://stackoverflow.com/questions/59822733/please-solve-the-error-in-aws-cli-parameter-validation-failed) which turns out , l hadn't included my account ID the right way in the env terminal and was returned empty value while tring to create the budget.
 
 ### Created a Budget
 I created my own budget for to help with costs estimates.
@@ -58,8 +64,10 @@ In addition to that you can notice the arrows from Amazon Dynamo DB and RDS to A
  [CICD Design](https://lucid.app/lucidchart/9a3aa242-6532-488f-804c-161b73238eef/edit?view_items=HllynDte0Wk7&invitationId=inv_d9c8df5f-4720-46f2-9da7-346ef8369540)
  
 - [x] Review all the questions of each pillars in the Well Architected Tool (No specialized lens)
-
+** TO BE ADDED SOON*
 ### Reference for the Homework Challenges
+
+**TO BE ADDED SOON**
 
 
 ## KEY TAKEAWAYS:
