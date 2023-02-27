@@ -51,7 +51,7 @@ In addition to that you can notice the arrows from Amazon Dynamo DB and RDS to A
  Additional proof of the [Lucid Share Link](https://lucid.app/lucidchart/cd84a441-e50e-4431-8e92-805aa20150c9/edit?viewport_loc=-1256%2C506%2C4302%2C1581%2C0_0&invitationId=inv_04a6dcf8-425a-4ef7-a14b-97a52e6046cc)
 
 
-## HOMEWORK CHALLENEGS
+## HOMEWORK CHALLENGES
 - [x] Additional icons in the Logical Diagram
  - Since security is essential in the Cruddur Application, l intend to restict netwrok traffic to my database by allowing only legitimate traffic to reduce attacks.
  - The databases at the backend are secured in the private subnet so as to not access internet directly.
