@@ -19,7 +19,7 @@ frontend = os.getenv('FRONTEND_URL')
 backend = os.getenv('BACKEND_URL')
 origins = [frontend, backend]
 cors = CORS(
-  app, 
+  app,
   resources={r"/api/*": {"origins": origins}},
   expose_headers="location,link",
   allow_headers="content-type,if-modified-since",
