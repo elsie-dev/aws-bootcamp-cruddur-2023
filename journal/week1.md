@@ -4,15 +4,11 @@
 
 ### Docker Containers
 I created Dockerfiles for the frontend and backend then containerized both of them 
+I then created a Dockercompose file as per the youtube Videos, did docker-compose up and build both containers.
 
 Proof of work ![Backend Dockerfile](assets/Week%201%20docker%20backend%20container.JPG)
 
-
-Proof of work ![Frontend Dockerfile]()
-
-
-I then created a Dockercompose file as per the youtube Videos, did docker-compose up and build both containers.
-![Proof of work]
+Proof of work ![Frontend Dockerfile](assets/Week%201%20frontend.JPG)
 
 ### Open API notification
 
@@ -29,7 +25,7 @@ Set up both DynamoDB and Postgress Containers.Here's a screenshot to prove the s
 For this challenge here are some of the tasks l accomplished:
 - [x] I learnt how to install Docker on my local machine and got the same outcome as codespace using.
 - [x] On my local pc l run Dockerfile CMD as external script then pushed and tagged image to DockerHub
-  - ![Proof of task]()
+  - ![Proof of task](assets/Week1%20docker%20tag%20and%20push.JPG)
   
 - [x] Creating an EC2 instance and installing Docker.
   - ![Proof of task](assets/Week1%20EC2%20docker%20installation.JPG)
