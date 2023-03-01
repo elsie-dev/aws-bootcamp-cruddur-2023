@@ -1,7 +1,9 @@
 # Week 2 — Distributed Tracing
-
+For week two task l have been having a problem with my GitPod Workspace and, therefore shifted to using GitHub Codespace. 
+For managing env variables for Honeycomb,I secured them under my Gthub Secrets and then restarted my codespace.
 
 ## HOMEWORK/TECHNICAL TASKS
+
 I instrumented the backend flask application to use Open Telemetry with Honeycomb.io as the provider
 
 I then run queires to explore tarces with Honeycomb then instrument AWS X-Ray into backend flask application.
