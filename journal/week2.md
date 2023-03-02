@@ -24,3 +24,6 @@ Lastly I installed Watch Tower, wrote a custom logger to send application to Clo
 - [x] Running custom queries in Honeycomb and save them later eg. Latency by UseID, Recent Traces.
 
 ![Proof of task]()
+
+### ISSUES ENCOUNTERED:
+Getting 502 gateway when running the ports from Codespaces. Solution, changing port protocal to either HTTP or HTTPS and restarting the terminal.
