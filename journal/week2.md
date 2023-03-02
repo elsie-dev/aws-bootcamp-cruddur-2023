@@ -27,3 +27,4 @@ Lastly I installed Watch Tower, wrote a custom logger to send application to Clo
 
 ### ISSUES ENCOUNTERED:
 Getting 502 gateway when running the ports from Codespaces. Solution, changing port protocal to either HTTP or HTTPS and restarting the terminal.
+[Stackoverflow](https://github.com/community/community/discussions/285630)
