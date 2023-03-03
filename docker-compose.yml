@@ -24,16 +24,16 @@ services:
     volumes:
       - ./frontend-react-js:/frontend-react-js
 
-  # xray-daemon:
-  #   image: "amazon/aws-xray-daemon"
-  #   environment:
-  #     AWS_ACCESS_KEY_ID: "${AWS_ACCESS_KEY_ID}"
-  #     AWS_SECRET_ACCESS_KEY: "${AWS_SECRET_ACCESS_KEY}"
-  #     AWS_REGION: "us-east-1"
-  #   command:
-  #     - "xray -o -b xray-daemon:2000"
-  #   ports:
-  #     - 2000:2000/udp
+#   xray-daemon:
+#     image: "amazon/aws-xray-daemon"
+#     environment:
+#       AWS_ACCESS_KEY_ID: "${AWS_ACCESS_KEY_ID}"
+#       AWS_SECRET_ACCESS_KEY: "${AWS_SECRET_ACCESS_KEY}"
+#       AWS_REGION: "us-east-1"
+#     command:
+#       - "xray -o -b xray-daemon:2000"
+#     ports:
+#       - 2000:2000/udp
 
   db:
     image: postgres:13-alpine
@@ -55,12 +55,13 @@ services:
     container_name: dynamodb-local
     ports:
       - "8000:8000"
+      
     volumes:
       - "./docker/dynamodb:/home/dynamodblocal/data"
     working_dir: /home/dynamodblocal
 
-# the name flag is a hack to change the default prepend folder
-# name when outputting the image names
+# # the name flag is a hack to change the default prepend folder
+# # name when outputting the image names
 networks:
   internal-network:
     driver: bridge
@@ -69,3 +70,4 @@ networks:
 volumes:
   db:
     driver: local
+
