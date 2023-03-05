@@ -24,7 +24,7 @@ I provisioned X-Ray daemon within docker-compose and sent data back to X-Ray API
 
 Lastly l integrated Rollbar for Error Logging and triggered error logging.
 
-![Rollbar Console]()
+![Rollbar Console](/assets/wEEK%202%20Rollbar.JPG)
 
 ## HOMEWORK CHALLENGES
 - [x] Instrumenting Honeycomb for the frontend-application to observe network latency between frontend and backend
