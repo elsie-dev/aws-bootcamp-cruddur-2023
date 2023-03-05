@@ -6,9 +6,9 @@ For managing env variables for Honeycomb,I secured them under my Gthub Secrets a
 
 I instrumented the backend flask application to use Open Telemetry with Honeycomb.io as the provider
 
-I then run queires to explore tarces with Honeycomb then instrument AWS X-Ray into backend flask application.
+I then run queires to explore traces with Honeycomb then instrument AWS X-Ray into backend flask application.
 
-![Proof of Task]()
+![Proof of Task](/assets/Week%202%20Honeycomb%20traces.JPG)
 
 I provisioned X-Ray daemon within docker-compose and sent data back to X-Ray API then observed the traces within AWS Console
 ![Proof of my AWS Console]()
