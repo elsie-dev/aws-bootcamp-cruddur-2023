@@ -16,8 +16,11 @@ Configuring X-ay daemon within docker-compose to send data to X-Ray API
 I provisioned X-Ray daemon within docker-compose and sent data back to X-Ray API then observed the traces within AWS Console
 ![Proof of traces on AWS Console](assets/Week2%20tracefromxray.JPG)
 
-I also integrated Rollbar for Error Logging and triggered error logging.
-Lastly I installed Watch Tower, wrote a custom logger to send application to Cloud Watch Log Group
+ I also installed Watch Tower, wrote a custom logger to send application to Cloud Watch Log Group.
+ ![](assets/Week2%20cloudwatch%20traces%20terminal.JPG )
+
+Lastly l integrated Rollbar for Error Logging and triggered error logging.
+![Rollbar Console]()
 
 ## HOMEWORK CHALLENGES
 - [x] Instrumenting Honeycomb for the frontend-application to observe network latency between frontend and backend
