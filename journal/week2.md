@@ -26,7 +26,7 @@ Lastly l integrated Rollbar for Error Logging and triggered error logging.
 
 ![Rollbar Console](assets/wEEK%202%20Rollbar.JPG)
 
-## HOMEWORK CHALLENGES
+## HOMEWORK CHALLENGES (TO BE COMPLETED)
 - [x] Instrumenting Honeycomb for the frontend-application to observe network latency between frontend and backend
 
 ![Proof of task]()
