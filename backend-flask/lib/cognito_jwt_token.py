@@ -1,53 +1,114 @@
-version: "3.8"
-services:
-  backend-flask:
-    environment:
-      FRONTEND_URL: "https://3000-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}"
-      BACKEND_URL: "https://4567-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}"
-      #FRONTEND_URL: "https://${CODESPACE_NAME}-3000.${GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN}"
-      #BACKEND_URL: "https://${CODESPACE_NAME}-4567.${GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN}"
-      OTEL_SERVICE_NAME: 'backend-flask'
-      OTEL_EXPORTER_OTLP_ENDPOINT: "https://api.honeycomb.io"
-      OTEL_EXPORTER_OTLP_HEADERS: "x-honeycomb-team=${HONEYCOMB_API_KEY}"
-      AWS_XRAY_URL: "*4567-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}*"
-      AWS_XRAY_DAEMON_ADDRESS: "xray-daemon:2000"
-      AWS_DEFAULT_REGION: "${AWS_DEFAULT_REGION}"
-      AWS_ACCESS_KEY_ID: "${AWS_ACCESS_KEY_ID}"
-      AWS_SECRET_ACCESS_KEY: "${AWS_SECRET_ACCESS_KEY}"
-      ROLLBAR_ACCESS_TOKEN: "${ROLLBAR_ACCESS_TOKEN}"
-      AWS_COGNITO_USER_POOL_ID: "ca-central-1_CQ4wDfnwc"
-      AWS_COGNITO_USER_POOL_CLIENT_ID: "5b6ro31g97urk767adrbrdj1g5"    
-    build: ./backend-flask
-    ports:
-      - "4567:4567"
-    volumes:
-      - ./backend-flask:/backend-flask
-  frontend-react-js:
-    environment:
-      REACT_APP_BACKEND_URL: "https://4567-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}"
-      #REACT_APP_BACKEND_URL: "https://${CODESPACE_NAME}-4567.${GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN}"
-      REACT_APP_AWS_PROJECT_REGION: "${AWS_DEFAULT_REGION}"
-      REACT_APP_AWS_COGNITO_REGION: "${AWS_DEFAULT_REGION}"
-      REACT_APP_AWS_USER_POOLS_ID: "ca-central-1_CQ4wDfnwc"
-      REACT_APP_CLIENT_ID: "5b6ro31g97urk767adrbrdj1g5"
-    build: ./frontend-react-js
-    ports:
-      - "3000:3000"
-    volumes:
-      - ./frontend-react-js:/frontend-react-js
-  xray-daemon:
-    image: "amazon/aws-xray-daemon"
-    environment:
-      AWS_ACCESS_KEY_ID: "${AWS_ACCESS_KEY_ID}"
-      AWS_SECRET_ACCESS_KEY: "${AWS_SECRET_ACCESS_KEY}"
-      AWS_REGION: "ca-central-1"
-    command:
-      - "xray -o -b xray-daemon:2000"
-    ports:
-      - 2000:2000/udp
-# the name flag is a hack to change the default prepend folder
-# name when outputting the image names
-networks: 
-  internal-network:
-    driver: bridge
-    name: cruddur
+import time
+import requests
+from jose import jwk, jwt
+from jose.exceptions import JOSEError
+from jose.utils import base64url_decode
+
+class FlaskAWSCognitoError(Exception):
+  pass
+
+class TokenVerifyError(Exception):
+  pass
+
+def extract_access_token(request_headers):
+    access_token = None
+    auth_header = request_headers.get("Authorization")
+    if auth_header and " " in auth_header:
+        _, access_token = auth_header.split()
+    return access_token
+
+class CognitoJwtToken:
+    def __init__(self, user_pool_id, user_pool_client_id, region, request_client=None):
+        self.region = region
+        if not self.region:
+            raise FlaskAWSCognitoError("No AWS region provided")
+        self.user_pool_id = user_pool_id
+        self.user_pool_client_id = user_pool_client_id
+        self.claims = None
+        if not request_client:
+            self.request_client = requests.get
+        else:
+            self.request_client = request_client
+        self._load_jwk_keys()
+
+
+    def _load_jwk_keys(self):
+        keys_url = f"https://cognito-idp.{self.region}.amazonaws.com/{self.user_pool_id}/.well-known/jwks.json"
+        try:
+            response = self.request_client(keys_url)
+            self.jwk_keys = response.json()["keys"]
+        except requests.exceptions.RequestException as e:
+            raise FlaskAWSCognitoError(str(e)) from e
+
+    @staticmethod
+    def _extract_headers(token):
+        try:
+            headers = jwt.get_unverified_headers(token)
+            return headers
+        except JOSEError as e:
+            raise TokenVerifyError(str(e)) from e
+
+    def _find_pkey(self, headers):
+        kid = headers["kid"]
+        # search for the kid in the downloaded public keys
+        key_index = -1
+        for i in range(len(self.jwk_keys)):
+            if kid == self.jwk_keys[i]["kid"]:
+                key_index = i
+                break
+        if key_index == -1:
+            raise TokenVerifyError("Public key not found in jwks.json")
+        return self.jwk_keys[key_index]
+
+    @staticmethod
+    def _verify_signature(token, pkey_data):
+        try:
+            # construct the public key
+            public_key = jwk.construct(pkey_data)
+        except JOSEError as e:
+            raise TokenVerifyError(str(e)) from e
+        # get the last two sections of the token,
+        # message and signature (encoded in base64)
+        message, encoded_signature = str(token).rsplit(".", 1)
+        # decode the signature
+        decoded_signature = base64url_decode(encoded_signature.encode("utf-8"))
+        # verify the signature
+        if not public_key.verify(message.encode("utf8"), decoded_signature):
+            raise TokenVerifyError("Signature verification failed")
+
+    @staticmethod
+    def _extract_claims(token):
+        try:
+            claims = jwt.get_unverified_claims(token)
+            return claims
+        except JOSEError as e:
+            raise TokenVerifyError(str(e)) from e
+
+    @staticmethod
+    def _check_expiration(claims, current_time):
+        if not current_time:
+            current_time = time.time()
+        if current_time > claims["exp"]:
+            raise TokenVerifyError("Token is expired")  # probably another exception
+
+    def _check_audience(self, claims):
+        # and the Audience  (use claims['client_id'] if verifying an access token)
+        audience = claims["aud"] if "aud" in claims else claims["client_id"]
+        if audience != self.user_pool_client_id:
+            raise TokenVerifyError("Token was not issued for this audience")
+
+    def verify(self, token, current_time=None):
+        """ https://github.com/awslabs/aws-support-tools/blob/master/Cognito/decode-verify-jwt/decode-verify-jwt.py """
+        if not token:
+            raise TokenVerifyError("No token provided")
+
+        headers = self._extract_headers(token)
+        pkey_data = self._find_pkey(headers)
+        self._verify_signature(token, pkey_data)
+
+        claims = self._extract_claims(token)
+        self._check_expiration(claims, current_time)
+        self._check_audience(claims)
+
+        self.claims = claims 
+        return claims
