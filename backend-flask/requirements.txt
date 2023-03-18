@@ -12,3 +12,7 @@ watchtower
 blinker
 rollbar
 Flask-AWSCognito
+
+
+flask-restful
+flask-jwt-extended
