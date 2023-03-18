@@ -13,7 +13,7 @@
  ENV FLASK_ENV=development
 
  EXPOSE ${PORT}
- CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0", "--port=4567" , "envoy.yaml"]
+ CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0", "--port=4567", "envoy.yaml"]
 
 # FROM envoyproxy/envoy:dev-345752d60cda2f2c1c47e36cdd30752b3f9d6880
 # COPY envoy.yaml /etc/envoy/envoy.yaml
