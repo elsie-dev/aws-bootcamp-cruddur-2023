@@ -75,17 +75,17 @@ tracer = trace.get_tracer(__name__)
 app = Flask(__name__)
 
 #envoy endpoints
-api = Api(app)
-app.config['JWT_SECRET_KEY'] = 'super-secret'  # Change this to a secure secret key
-jwt = JWTManager(app)
+# api = Api(app)
+# app.config['JWT_SECRET_KEY'] = 'super-secret'  # Change this to a secure secret key
+# jwt = JWTManager(app)
 
-class SecretResource(Resource):
-    @jwt_required
-    def get(self):
-        current_user = get_jwt_identity()
-        return {'message': f'Hello {current_user}!'}
+# class SecretResource(Resource):
+#     @jwt_required
+#     def get(self):
+#         current_user = get_jwt_identity()
+#         return {'message': f'Hello {current_user}!'}
 
-api.add_resource(SecretResource, '/secret')
+# api.add_resource(SecretResource, '/secret')
 
 # cognito_jwt_token = CognitoJwtToken(
 #   user_pool_id=os.getenv("AWS_COGNITO_USER_POOL_ID"), 

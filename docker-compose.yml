@@ -50,7 +50,9 @@ services:
   envoy-proxy:
     image: envoyproxy/envoy:v1.19.0
     volumes:
-      - ./envoy.yaml:/backend-flask/envoy.yaml
+      # - ./envoy.yaml:/backend-flask/envoy.yaml
+      - ./backend-flask/envoy.yaml:/backend-flask/envoy.yaml
+
     
     ports:
       - "8000:8000"
