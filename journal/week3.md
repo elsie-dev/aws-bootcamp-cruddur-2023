@@ -12,7 +12,8 @@
 I also verified JWT Token server side to serve authenticated API endpoints in Flask Application.
 
 ## ALTERNATIVES AND CONSIDERATIONS
-- [x] Setup Azzure AD B2C solution. Since its low cost it supports many Identity Providers (IpDs)
+- [x] Setup Azure AD B2C solution. Since its low cost it supports many Identity Providers (IpDs)
+![Proof of Task]()
 
 ## HOMEWORK CHALLENGES
 
