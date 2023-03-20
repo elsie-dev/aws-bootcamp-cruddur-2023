@@ -1,15 +1,16 @@
 # Week 4 — Postgres and RDS
 
-HOMEOWRK TASKS
-I provisioned an RDS instance, stopped it then  remotely connected to RDS instance
+## HOMEWORK TASKS
+- I provisioned an RDS instance, stopped it then  remotely connected to RDS instance bash scripts for database operations
+- ![Proof of tasks]()
 
-Wrote bash scripts for database operations
+- Operated common SQL commanfs and created a schema SQL file by hand
 
-Operated common SQL commanfs and created a schema SQL file by hand
-
-Implemented a postgres client for python using connection pool and toubleshoot SQL errors.
+- I also Implemented a postgres client for python using connection pool and toubleshoot SQL errors.
 
 I also implemented a Lambda that uns in VPC and commits code to RDS.
 
 
-HOMEWORK CHALLENGES
+## HOMEWORK CHALLENGES:
+
+##REFERNCES USED:
