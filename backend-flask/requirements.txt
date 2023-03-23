@@ -16,3 +16,6 @@ Flask-AWSCognito
 
 flask-restful
 flask-jwt-extended
+
+psycopg[binary]
+psycopg[pool]
