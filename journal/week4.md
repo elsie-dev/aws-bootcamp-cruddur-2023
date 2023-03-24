@@ -4,11 +4,12 @@
 - I provisioned an RDS instance, stopped it then  remotely connected to RDS instance bash scripts for database operations
 - ![Proof of tasks]()
 
-- Operated common SQL commanfs and created a schema SQL file by hand
+- Operated common SQL commands and created a schema SQL file by hand
+ ![Proof of tasks]()
 
 - I also Implemented a postgres client for python using connection pool and toubleshoot SQL errors.
 
-I also implemented a Lambda that uns in VPC and commits code to RDS.
+- I also implemented a Lambda that uns in VPC and commits code to RDS.
 
 
 ## HOMEWORK CHALLENGES:
