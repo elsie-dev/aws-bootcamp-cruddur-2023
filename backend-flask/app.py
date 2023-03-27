@@ -1,15 +1,11 @@
 from flask import Flask
 from flask import request
 from flask_cors import CORS, cross_origin
-
-# using envoy for jwt verify process
-from flask_restful import Resource, Api
-from flask_jwt_extended import JWTManager, jwt_required, get_jwt_identity
-
 import os
 import sys
 
 from services.home_activities import *
+from services.notifications_activities import *
 from services.user_activities import *
 from services.create_activity import *
 from services.create_reply import *
@@ -61,8 +57,8 @@ processor = BatchSpanProcessor(OTLPSpanExporter())
 provider.add_span_processor(processor)
 
 # X-RAY ----------
-xray_url = os.getenv("AWS_XRAY_URL")
-xray_recorder.configure(service='backend-flask', dynamic_naming=xray_url)
+#xray_url = os.getenv("AWS_XRAY_URL")
+#xray_recorder.configure(service='backend-flask', dynamic_naming=xray_url)
 
 # OTEL ----------
 # Show this in the logs within the backend-flask app (STDOUT)
@@ -74,27 +70,14 @@ tracer = trace.get_tracer(__name__)
 
 app = Flask(__name__)
 
-#envoy endpoints
-# api = Api(app)
-# app.config['JWT_SECRET_KEY'] = 'super-secret'  # Change this to a secure secret key
-# jwt = JWTManager(app)
-
-# class SecretResource(Resource):
-#     @jwt_required
-#     def get(self):
-#         current_user = get_jwt_identity()
-#         return {'message': f'Hello {current_user}!'}
-
-# api.add_resource(SecretResource, '/secret')
-
-# cognito_jwt_token = CognitoJwtToken(
-#   user_pool_id=os.getenv("AWS_COGNITO_USER_POOL_ID"), 
-#   user_pool_client_id=os.getenv("AWS_COGNITO_USER_POOL_CLIENT_ID"),
-#   region=os.getenv("AWS_REGION")
-# )
+cognito_jwt_token = CognitoJwtToken(
+  user_pool_id=os.getenv("AWS_COGNITO_USER_POOL_ID"), 
+  user_pool_client_id=os.getenv("AWS_COGNITO_USER_POOL_CLIENT_ID"),
+  region=os.getenv("AWS_DEFAULT_REGION")
+)
 
 # X-RAY ----------
-XRayMiddleware(app, xray_recorder)
+#XRayMiddleware(app, xray_recorder)
 
 # HoneyComb ---------
 # Initialize automatic instrumentation with Flask
@@ -179,7 +162,7 @@ def data_create_message():
   return
 
 @app.route("/api/activities/home", methods=['GET'])
-@xray_recorder.capture('activities_home')
+#@xray_recorder.capture('activities_home')
 def data_home():
   access_token = extract_access_token(request.headers)
   try:
@@ -196,8 +179,13 @@ def data_home():
     data = HomeActivities.run()
   return data, 200
 
+@app.route("/api/activities/notifications", methods=['GET'])
+def data_notifications():
+  data = NotificationsActivities.run()
+  return data, 200
+
 @app.route("/api/activities/@<string:handle>", methods=['GET'])
-@xray_recorder.capture('activities_users')
+#@xray_recorder.capture('activities_users')
 def data_handle(handle):
   model = UserActivities.run(handle)
   if model['errors'] is not None:
