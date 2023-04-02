@@ -67,7 +67,7 @@ export default function SignupPage() {
         <Logo className='logo' />
       </div>
       <div className='signup-wrapper'>
-        <form 
+        <form
           className='signup_form'
           onSubmit={onsubmit}
         >
@@ -78,7 +78,7 @@ export default function SignupPage() {
               <input
                 type="text"
                 value={name}
-                onChange={name_onchange} 
+                onChange={name_onchange}
               />
             </div>
 
@@ -87,7 +87,7 @@ export default function SignupPage() {
               <input
                 type="text"
                 value={email}
-                onChange={email_onchange} 
+                onChange={email_onchange}
               />
             </div>
 
@@ -96,7 +96,7 @@ export default function SignupPage() {
               <input
                 type="text"
                 value={username}
-                onChange={username_onchange} 
+                onChange={username_onchange}
               />
             </div>
 
@@ -105,7 +105,7 @@ export default function SignupPage() {
               <input
                 type="password"
                 value={password}
-                onChange={password_onchange} 
+                onChange={password_onchange}
               />
             </div>
           </div>

@@ -33,7 +33,7 @@ export default function ProfileInfo(props) {
   return (
     <div className={classes()}>
       <div className="profile-dialog">
-        <button onClick={signOut}>Sign Out</button> 
+        <button onClick={signOut}>Sign Out</button>
       </div>
       <div className="profile-info" onClick={click_pop}>
         <div className="profile-avatar"></div>

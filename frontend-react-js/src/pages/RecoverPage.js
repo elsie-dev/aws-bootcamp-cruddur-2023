@@ -29,7 +29,7 @@ export default function RecoverPage() {
       .then((data) => setFormState('success'))
       .catch((err) => setErrors(err.message) );
     } else {
-      setErrors('Passwords do not match')
+      setCognitoErrors('Passwords do not match')
     }
     return false
   }
@@ -53,7 +53,7 @@ export default function RecoverPage() {
   }
 
   const send_code = () => {
-    return (<form 
+    return (<form
       className='recover_form'
       onSubmit={onsubmit_send_code}
     >
@@ -64,7 +64,7 @@ export default function RecoverPage() {
           <input
             type="text"
             value={username}
-            onChange={username_onchange} 
+            onChange={username_onchange}
           />
         </div>
       </div>
@@ -78,7 +78,7 @@ export default function RecoverPage() {
   }
 
   const confirm_code = () => {
-    return (<form 
+    return (<form
       className='recover_form'
       onSubmit={onsubmit_confirm_code}
     >
@@ -89,7 +89,7 @@ export default function RecoverPage() {
           <input
             type="text"
             value={code}
-            onChange={code_onchange} 
+            onChange={code_onchange}
           />
         </div>
         <div className='field text_field password'>
@@ -97,7 +97,7 @@ export default function RecoverPage() {
           <input
             type="password"
             value={password}
-            onChange={password_onchange} 
+            onChange={password_onchange}
           />
         </div>
         <div className='field text_field password_again'>
@@ -105,7 +105,7 @@ export default function RecoverPage() {
           <input
             type="password"
             value={passwordAgain}
-            onChange={password_again_onchange} 
+            onChange={password_again_onchange}
           />
         </div>
       </div>

@@ -1,8 +1,6 @@
 from flask import Flask
 from flask import request
 from flask_cors import CORS, cross_origin
-
-
 import os
 import sys
 
@@ -75,7 +73,7 @@ app = Flask(__name__)
 cognito_jwt_token = CognitoJwtToken(
   user_pool_id=os.getenv("AWS_COGNITO_USER_POOL_ID"),
   user_pool_client_id=os.getenv("AWS_COGNITO_USER_POOL_CLIENT_ID"),
-  region=os.getenv("AWS_REGION")
+  region=os.getenv("AWS_DEFAULT_REGION")
 )
 
 # X-RAY ----------
@@ -208,8 +206,7 @@ def data_search():
 @app.route("/api/activities", methods=['POST','OPTIONS'])
 @cross_origin()
 def data_activities():
-  user_handle  = ""
-  request.json["user_handle"]
+  user_handle  = 'andrewbrown'
   message = request.json['message']
   ttl = request.json['ttl']
   model = CreateActivity.run(message, user_handle, ttl)
