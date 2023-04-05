@@ -1,1 +1,7 @@
 # Week 6 — Deploying Containers
+
+## HOMEWORK TASKS
+
+## HOMEWORK CHALLENGES
+
+##CHALLENGES FACED
